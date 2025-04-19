@@ -1,0 +1,11 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<main>
+  <h1>{{ .Title }}</h1>
+  <ul>
+  {{ range .Pages }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if eq .Section "post" }} – {{ .Date.Format "Jan 2, 2006" }}{{ end }}</li>
+  {{ end }}
+  </ul>
+</main>
+{{ partial "footer.html" . }}

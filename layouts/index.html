@@ -1,0 +1,30 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<main>
+  <section id="featured-products">
+    <h2>Featured Products</h2>
+    <div class="prod-grid">
+      {{ range first 6 (where .Site.RegularPages "Section" "products") }}
+      <article>
+        <a href="{{ .Permalink }}">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}">
+          <h3>{{ .Title }}</h3>
+        </a>
+        <p>{{ .Params.desc }}</p>
+      </article>
+      {{ end }}
+    </div>
+    <a href="/products/">View All Products</a>
+  </section>
+
+  <section id="recent-posts">
+    <h2>Latest Blog Posts</h2>
+    <ul>
+      {{ range first 5 (where .Site.RegularPages "Section" "post") }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a> – {{ .Date.Format "Jan 2, 2006" }}</li>
+      {{ end }}
+    </ul>
+    <a href="/post/">View All Posts</a>
+  </section>
+</main>
+{{ partial "footer.html" . }}

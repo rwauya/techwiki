@@ -1,0 +1,13 @@
+<header>
+    <nav>
+      <ul>
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+    <div id="search-container">
+      <input type="text" id="search-box" placeholder="Search TechWiki...">
+      <ul id="search-results"></ul>
+    </div>
+  </header>

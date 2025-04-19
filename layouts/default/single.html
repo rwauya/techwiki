@@ -1,0 +1,20 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<main>
+  <article>
+    <h1>{{ .Title }}</h1>
+    <p class="meta">
+      {{ if eq .Section "post" }}By {{ .Params.author }} on {{ .Date.Format "Jan 2, 2006" }}{{ end }}
+      {{ if eq .Section "products" }}Category: <a href="/categories/{{ lower .Params.category }}/">{{ .Params.category }}</a>{{ end }}
+    </p>
+    {{ if eq .Section "products" }}
+    <img src="{{ .Params.image }}" alt="{{ .Title }}">
+    <p>{{ .Params.desc }}</p>
+    {{ end }}
+    <div class="content">{{ .Content }}</div>
+    {{ if eq .Section "products" }}
+    <p><a class="buy-btn" href="{{ .Params.link }}" target="_blank">Buy on Amazon</a></p>
+    {{ end }}
+  </article>
+</main>
+{{ partial "footer.html" . }}
