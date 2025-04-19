@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Slug",            name: "slug",   widget: "string" }
+      - { label: "Title",           name: "title",  widget: "string" }
+      - { label: "Category",        name: "category", widget: "select", options: ["GPU","SSD","Motherboard","Laptop","Phone","NAS","Server","Monitor","Memory","Storage"] }
+      - { label: "Specs",           name: "specs",  widget: "markdown" }
+      - { label: "Affiliate Link",  name: "link",   widget: "string" }
+      - { label: "Image",           name: "image",  widget: "image" }
+      - { label: "Description",     name: "desc",   widget: "text" }
+
+  - name: "post"
+    label: "Blog Posts"
+    folder: "content/post"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title",      name: "title",      widget: "string" }
+      - { label: "Date",       name: "date",       widget: "datetime" }
+      - { label: "Author",     name: "author",     widget: "string" }
+      - { label: "Categories", name: "categories", widget: "list" }
+      - { label: "Tags",       name: "tags",       widget: "list" }
+      - { label: "Body",       name: "body",       widget: "markdown" }

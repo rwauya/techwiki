@@ -1,31 +1,47 @@
-baseURL = "https://techwiki.online/"
-title = "TechWiki"
-theme = "techwiki-theme"
-languageCode = "en-us"
-paginate = 10
+# Tell Hugo to build into docs/ for GitHub Pages
+publishDir   = "docs"
 
-# RSS output for home
-outputs = { home = ["HTML","RSS"] }
+baseURL      = "https://techwiki.online/"
+title        = "TechWiki"
+theme        = "techwiki-theme"
+languageCode = "en-us"
+
+[pagination]
+  pagerSize = 10
+
+# RSS on the home page
+outputs      = { home = ["HTML", "RSS"] }
 
 [params]
-  description = "The definitive encyclopedia of high-end tech products"
+  description = "The definitive encyclopedia of high‑end tech products"
   author      = "Your Name"
-  adsenseID   = "ca-pub-YOUR_ADSENSE_ID"
+  adsenseID   = "ca-pub-XXXXXXXXXXXX"
   prebidID    = "/js/prebid.js"
-
-[menu]
-  [[menu.main]]
-    name = "Home";     url = "/";         weight = 1
-  [[menu.main]]
-    name = "Products"; url = "/products/"; weight = 2
-  [[menu.main]]
-    name = "Compare";  url = "/compare/";  weight = 3
-  [[menu.main]]
-    name = "Blog";     url = "/post/";     weight = 4
 
 [taxonomies]
   category = "categories"
   tag      = "tags"
+
+# Main navigation menu
+[[menu.main]]
+  name   = "Home"
+  url    = "/"
+  weight = 1
+
+[[menu.main]]
+  name   = "Products"
+  url    = "/products/"
+  weight = 2
+
+[[menu.main]]
+  name   = "Compare"
+  url    = "/compare/"
+  weight = 3
+
+[[menu.main]]
+  name   = "Blog"
+  url    = "/post/"
+  weight = 4
 
 [markup]
   defaultMarkdownHandler = "goldmark"
